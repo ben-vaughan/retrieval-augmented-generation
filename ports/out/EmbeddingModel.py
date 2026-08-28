@@ -2,9 +2,9 @@ from abc import ABC, abstractmethod
 
 class EmbeddingModelPort(ABC):
     @abstractmethod
-    def embed_documents(
+    def embed_text_chunks(
         self,
-        chunks: list[str]
+        text_chunks: list[str]
     ) -> list[list[float]]:
         pass
 

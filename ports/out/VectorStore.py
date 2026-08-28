@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+from application.entities.Chunk import Chunk
 from application.entities.VectorSearchResult import VectorSearchResult
 
 
@@ -7,9 +8,7 @@ class VectorStorePort(ABC):
     @abstractmethod
     def store(
         self, 
-        document_id: str, 
-        chunks: list[str], 
-        vectors: list[list[float]],
+        chunks: list[Chunk]
     ) -> None:
         pass
 
