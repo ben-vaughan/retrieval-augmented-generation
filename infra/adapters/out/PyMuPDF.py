@@ -4,7 +4,7 @@ from pathlib import Path
 from src.ports.out.PDFExtractor import PDFExtractorPort
 
 
-class PyMuPDF(PDFExtractorPort):
+class PyMuPDFAdapter(PDFExtractorPort):
     def __init__(
         self
     ):
