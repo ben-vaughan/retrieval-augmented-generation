@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class EmbeddingModelPort(ABC):
     @abstractmethod
     def embed_text_chunks(

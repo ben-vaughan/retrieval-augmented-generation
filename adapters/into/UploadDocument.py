@@ -1,12 +1,14 @@
-from application.entities.Chunk import Chunk
-from application.services.TextSplitter import TextSplitter
+from src.domain.entities.TextChunk import TextChunk
+from src.domain.services.TextSplitter import TextSplitter
 
-from ports.out.EmbeddingModel import EmbeddingModelPort
-from ports.out.PDFExtractor import PDFExtractorPort
-from ports.out.VectorStore import VectorStorePort
+from src.ports.into.UploadDocument import UploadDocumentPort
+
+from src.ports.out.EmbeddingModel import EmbeddingModelPort
+from src.ports.out.PDFExtractor import PDFExtractorPort
+from src.ports.out.VectorStore import VectorStorePort
 
 
-class UploadDocumentUseCase:
+class UploadDocumentUseCase(UploadDocumentPort):
     def __init__(
         self,
         pdf_extractor: PDFExtractorPort,
@@ -17,7 +19,7 @@ class UploadDocumentUseCase:
         self._embedding_model = embedding_model
         self._vector_store = vector_store
 
-    def upload(self, pdf_path: str):
+    def execute(self, pdf_path: str):
         extracted_text = self._pdf_extractor.extract_text(pdf_path)
 
         text_chunks = TextSplitter.split_text(extracted_text)
@@ -26,7 +28,7 @@ class UploadDocumentUseCase:
         chunks_to_store = []
 
         for i, (text, embedding) in enumerate(zip(text_chunks, text_embeddings)):
-            chunk = Chunk(
+            chunk = TextChunk(
                 f"{pdf_path}_{i}",
                 text,
                 embedding,

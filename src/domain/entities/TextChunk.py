@@ -1,4 +1,4 @@
-class Chunk:
+class TextChunk:
     def __init__(
         self,
         id: str,
