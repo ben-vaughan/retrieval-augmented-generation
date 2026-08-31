@@ -6,5 +6,8 @@ The motivation of this project is to:
 4. Play with local embedding models, become familiar around vectors as a data store, experiment with embedding strategies, and get exposure to working with LLM APIs.
 5. Learn how to build effective LLM evaluation processes.
 
+### Design
+This application utilises the Hexagonal Architecture design pattern.
+
 #### User Story Mapping
 <img src="USM_v1.png"/>
