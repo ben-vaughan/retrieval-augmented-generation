@@ -1,13 +1,13 @@
-from src.domain.services.DocumentIndexer import DocumentIndexer
+from src.domain.service.DocumentIndexer import DocumentIndexer
 
-from src.application.use_cases.UploadPDF import UploadPDFUseCase
-from src.application.use_cases.UploadText import UploadTextUseCase
+from src.application.use_case.UploadPDF import UploadPDFUseCase
+from src.application.use_case.UploadText import UploadTextUseCase
 
-from infra.adapters.into.Terminal import Terminal
+from src.adapter.into.Terminal import Terminal
 
-from infra.adapters.out.PyMuPDF import PyMuPDFAdapter
-from infra.adapters.out.OllamaEmbedding import OllamaEmbeddingAdapter
-from infra.adapters.out.MemoryVectorStore import MemoryVectorStoreAdapter
+from src.adapter.out.PyMuPDF import PyMuPDFAdapter
+from src.adapter.out.OllamaEmbedding import OllamaEmbeddingAdapter
+from src.adapter.out.MemoryVectorStore import MemoryVectorStoreAdapter
 
 
 if __name__ == '__main__':

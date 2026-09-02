@@ -1,18 +1,18 @@
-from src.domain.entities.TextChunk import TextChunk
-from src.domain.entities.VectorSearchResult import VectorSearchResult
-from src.ports.out.VectorStore import VectorStorePort
+from abc import ABC, abstractmethod
+
+from src.domain.model.TextChunk import TextChunk
+from src.domain.model.VectorSearchResult import VectorSearchResult
 
 
-class MemoryVectorStoreAdapter(VectorStorePort):
-    def __init__(self):
-        pass
-
+class VectorStorePort(ABC):
+    @abstractmethod
     def store(
         self, 
         chunks: list[TextChunk]
     ) -> None:
         pass
 
+    @abstractmethod
     def search(
         self,
         query_vector: list[float],

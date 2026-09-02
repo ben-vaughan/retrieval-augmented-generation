@@ -1,9 +1,9 @@
 from pathlib import Path
 
-from src.application.use_cases.UploadPDF import UploadPDFUseCase
-from src.application.use_cases.UploadText import UploadTextUseCase
+from src.application.use_case.UploadPDF import UploadPDFUseCase
+from src.application.use_case.UploadText import UploadTextUseCase
 
-from src.domain.errors.FileTypeNotSupportedError import FileTypeNotSupportedError
+from src.domain.exception.FileTypeNotSupportedError import FileTypeNotSupportedError
 
 
 class Terminal:

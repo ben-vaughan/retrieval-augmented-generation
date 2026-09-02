@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from src.domain.entities.TextChunk import TextChunk
+from src.domain.model.TextChunk import TextChunk
 
 
 class EmbeddingModelPort(ABC):

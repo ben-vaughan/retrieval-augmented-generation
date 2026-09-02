@@ -1,7 +1,8 @@
 import requests
 
-from src.domain.entities.TextChunk import TextChunk
-from src.ports.out.EmbeddingModel import EmbeddingModelPort
+from src.domain.model.TextChunk import TextChunk
+
+from application.ports.out.EmbeddingModel import EmbeddingModelPort
 
 
 class OllamaEmbeddingAdapter(EmbeddingModelPort):

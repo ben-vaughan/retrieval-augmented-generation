@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from src.domain.services.DocumentIndexer import DocumentIndexer
+from src.domain.service.DocumentIndexer import DocumentIndexer
 
-from src.ports.into.UploadDocument import UploadDocumentPort
+from application.ports.into.UploadDocument import UploadDocumentPort
 
 
 class UploadTextUseCase(UploadDocumentPort):

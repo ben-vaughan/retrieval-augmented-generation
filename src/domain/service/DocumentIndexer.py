@@ -1,11 +1,11 @@
 from pathlib import Path
 
-from src.domain.entities.TextChunk import TextChunk
+from src.domain.model.TextChunk import TextChunk
 
-from src.domain.services.TextSplitter import TextSplitter
+from src.domain.service.TextSplitter import TextSplitter
 
-from src.ports.out.EmbeddingModel import EmbeddingModelPort
-from src.ports.out.VectorStore import VectorStorePort
+from application.ports.out.EmbeddingModel import EmbeddingModelPort
+from application.ports.out.VectorStore import VectorStorePort
 
 
 class DocumentIndexer:
