@@ -1,6 +1,6 @@
-from src.application.use_case.UploadPDF import UploadPDFUseCase
-from src.application.use_case.UploadText import UploadTextUseCase
-from src.application.use_case.DocumentIndexer import DocumentIndexer
+from src.application.use_case.UploadPDFService import UploadPDFUseCase
+from src.application.use_case.UploadTextService import UploadTextUseCase
+from src.application.use_case.IndexTextService import IndexTextService
 
 from src.adapter.into.Terminal import Terminal
 
@@ -14,12 +14,14 @@ if __name__ == '__main__':
     embedding_model = OllamaEmbeddingAdapter()
     vector_store = MemoryVectorStoreAdapter()
 
-    document_indexer = DocumentIndexer(
+    document_indexer = IndexTextService(
         embedding_model,
         vector_store
     )
 
-    upload_text_use_case = UploadTextUseCase(document_indexer)
+    upload_text_use_case = UploadTextUseCase(
+        document_indexer
+    )
     upload_pdf_use_case = UploadPDFUseCase(
         pdf_extractor,
         document_indexer

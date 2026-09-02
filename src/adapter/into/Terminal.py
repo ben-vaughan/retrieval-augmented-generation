@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from src.application.use_case.UploadPDF import UploadPDFUseCase
-from src.application.use_case.UploadText import UploadTextUseCase
+from src.application.use_case.UploadPDFService import UploadPDFUseCase
+from src.application.use_case.UploadTextService import UploadTextUseCase
 
 from src.domain.exception.FileTypeNotSupportedError import FileTypeNotSupportedError
 

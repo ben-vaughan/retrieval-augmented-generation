@@ -1,14 +1,13 @@
 from pathlib import Path
 
-from src.application.use_case.DocumentIndexer import DocumentIndexer
-
+from src.application.ports.into.IndexDocument import IndexDocumentPort
 from src.application.ports.into.UploadDocument import UploadDocumentPort
 
 
 class UploadTextUseCase(UploadDocumentPort):
     def __init__(
         self,
-        document_indexer: DocumentIndexer
+        document_indexer: IndexDocumentPort,
     ):
         self._document_indexer = document_indexer
 
