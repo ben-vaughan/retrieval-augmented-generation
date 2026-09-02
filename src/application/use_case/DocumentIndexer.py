@@ -4,8 +4,8 @@ from src.domain.model.TextChunk import TextChunk
 
 from src.domain.service.TextSplitter import TextSplitter
 
-from application.ports.out.EmbeddingModel import EmbeddingModelPort
-from application.ports.out.VectorStore import VectorStorePort
+from src.application.ports.out.EmbeddingModel import EmbeddingModelPort
+from src.application.ports.out.VectorStore import VectorStorePort
 
 
 class DocumentIndexer:

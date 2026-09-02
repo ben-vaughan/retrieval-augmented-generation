@@ -1,7 +1,6 @@
-from src.domain.service.DocumentIndexer import DocumentIndexer
-
 from src.application.use_case.UploadPDF import UploadPDFUseCase
 from src.application.use_case.UploadText import UploadTextUseCase
+from src.application.use_case.DocumentIndexer import DocumentIndexer
 
 from src.adapter.into.Terminal import Terminal
 

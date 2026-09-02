@@ -2,7 +2,7 @@ import pymupdf
 
 from pathlib import Path
 
-from application.ports.out.PDFExtractor import PDFExtractorPort
+from src.application.ports.out.PDFExtractor import PDFExtractorPort
 
 
 class PyMuPDFAdapter(PDFExtractorPort):

@@ -1,6 +1,6 @@
 from src.domain.model.TextChunk import TextChunk
 from src.domain.model.VectorSearchResult import VectorSearchResult
-from application.ports.out.VectorStore import VectorStorePort
+from src.application.ports.out.VectorStore import VectorStorePort
 
 
 class MemoryVectorStoreAdapter(VectorStorePort):

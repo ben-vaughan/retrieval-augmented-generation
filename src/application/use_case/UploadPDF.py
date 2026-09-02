@@ -1,10 +1,10 @@
 from pathlib import Path
 
-from src.domain.service.DocumentIndexer import DocumentIndexer
+from src.application.use_case.DocumentIndexer import DocumentIndexer
 
-from application.ports.into.UploadDocument import UploadDocumentPort
+from src.application.ports.into.UploadDocument import UploadDocumentPort
 
-from application.ports.out.PDFExtractor import PDFExtractorPort
+from src.application.ports.out.PDFExtractor import PDFExtractorPort
 
 
 class UploadPDFUseCase(UploadDocumentPort):
