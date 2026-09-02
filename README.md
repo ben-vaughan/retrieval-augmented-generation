@@ -10,4 +10,4 @@ The motivation of this project is to:
 This application utilises the Hexagonal Architecture design pattern.
 
 #### User Story Mapping
-<img src="USM_v1.png"/>
+<img src="assets/USM_v1.png"/>
