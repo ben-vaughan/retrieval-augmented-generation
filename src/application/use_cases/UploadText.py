@@ -1,7 +1,8 @@
-from domain.services.DocumentIndexer import DocumentIndexer
-from ports.into.UploadDocument import UploadDocumentPort
-from ports.out.EmbeddingModel import EmbeddingModelPort
-from ports.out.VectorStore import VectorStorePort
+from pathlib import Path
+
+from src.domain.services.DocumentIndexer import DocumentIndexer
+
+from src.ports.into.UploadDocument import UploadDocumentPort
 
 
 class UploadTextUseCase(UploadDocumentPort):
@@ -11,7 +12,7 @@ class UploadTextUseCase(UploadDocumentPort):
     ):
         self._document_indexer = document_indexer
 
-    def execute(self, path: str):
+    def execute(self, path: Path):
         with open(path, "r", encoding="utf-8") as file:
             text = file.read()
 

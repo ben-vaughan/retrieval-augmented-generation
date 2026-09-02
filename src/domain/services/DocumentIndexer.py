@@ -1,9 +1,11 @@
-from domain.entities.TextChunk import TextChunk
+from pathlib import Path
 
-from domain.services.TextSplitter import TextSplitter
+from src.domain.entities.TextChunk import TextChunk
 
-from ports.out.EmbeddingModel import EmbeddingModelPort
-from ports.out.VectorStore import VectorStorePort
+from src.domain.services.TextSplitter import TextSplitter
+
+from src.ports.out.EmbeddingModel import EmbeddingModelPort
+from src.ports.out.VectorStore import VectorStorePort
 
 
 class DocumentIndexer:
@@ -15,15 +17,16 @@ class DocumentIndexer:
         self._embedding_model = embedding_model
         self._vector_store = vector_store
 
-    def index_text(self, file_path: str, text: str):
+    def index_text(self, file_path: Path, text: str):
         text_chunks = TextSplitter.split_text(text)
         text_embeddings = self._embedding_model.embed_text_chunks(text_chunks)
 
+        document_id = file_path.name
         chunks_to_store = []
 
         for i, (text, embedding) in enumerate(zip(text_chunks, text_embeddings)):
             chunk = TextChunk(
-                f"{file_path}_{i}",
+                f"{document_id}_{i}",
                 text,
                 embedding,
             )

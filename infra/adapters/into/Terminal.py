@@ -1,11 +1,19 @@
 from pathlib import Path
 
+from src.application.use_cases.UploadPDF import UploadPDFUseCase
+from src.application.use_cases.UploadText import UploadTextUseCase
+
+from src.domain.errors.FileTypeNotSupportedError import FileTypeNotSupportedError
+
 
 class Terminal:
     def __init__(
         self,
+        upload_text_use_case: UploadTextUseCase,
+        upload_pdf_use_case: UploadPDFUseCase,
     ):
-        pass
+        self._upload_text_use_case = upload_text_use_case
+        self._upload_pdf_use_case = upload_pdf_use_case
 
     def run(self) -> None:
         while True:
@@ -30,13 +38,24 @@ class Terminal:
         print("3. Exit")
 
     def _handle_upload(self) -> None:
-        file_path = input("Enter PDF path: ").strip()
-        if not Path(file_path).exists():
+        raw_file_path = input("Enter PDF path: ").strip()
+        file_path = Path(raw_file_path)
+
+        if not file_path.exists():
             print("Error: File not found.")
             return
 
+        file_type = file_path.suffix.lower()
+
         try:
-            raise NotImplementedError()
+            match file_type:
+                case '.txt':
+                    self._upload_text_use_case.execute(file_path)
+                case '.pdf':
+                    self._upload_pdf_use_case.execute(file_path)
+                case _:
+                    raise FileTypeNotSupportedError(file_path)
+
         except Exception as e:
             print(f"Upload failed: {e}")
 
